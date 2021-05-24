@@ -1,23 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
+<br>
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-12 ">
             <div class="card">
-                <div class="card-header"></div>
+                <div class="card-header"> Listar Personas</div>
 
                 <div class="card-body">                
-                    <a class="btn btn-primari" href="{{route('personas.create')}}"> agregar</a>
+                    <a class="btn btn-primary" href="{{route('personas.create')}}"> agregar</a>
 
                     <hr>
-                    <table class="table table-dark">
+                    <table class="table table-light">
 
                     <tr>
                         <td>ID</td>
                         <td>NOMBRE</td>
                         <td>SEXO</td>
                         <td>DOCUMENTO</td>
+                        <td colspan="2">ACCIONES</td>
                     </tr>
                     @foreach ($personas as $persona)
                     <tr>
@@ -42,12 +45,12 @@
                         ?>
                         <td>{{ $nombreSexo  }}</td>
                         <td>{{ $nombreDocumento  }}</td>
-                        <td><a href="{{route('personas.edit',$persona->id)}}" class="btn btn-info">Editar</a></td>
+                        <td><a href="{{route('personas.edit',$persona->id)}}" class="btn btn-success">Editar</a></td>
                         
                         <td><form action="{{route('personas.destroy',$persona->id)}}" method="post">
                         @csrf 
                         @method('delete')
-                        <input type="submit" value="eliminar">
+                        <input class="btn btn-danger" type="submit" value="eliminar">
                         </form></td>
                         
                      

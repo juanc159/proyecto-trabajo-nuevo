@@ -75,6 +75,7 @@ class PersonaController extends Controller
     public function edit($id)
     {
         //
+        
         $persona =   Personas::find($id) ;
         $sexo = Sexo::all();
         $documento = TipoDocumento::all();

@@ -10,28 +10,33 @@
                 <div class="card-body">                
                     <form action="{{route('personas.store')}}" method="post">
                     @csrf 
-                    
-                    <label for="nombre">Nombre
-                        <input type="text" name="nombre" id="nombre">
-                    </label><br> 
-                    <label for="sexo">Sexo
-                        <select name="sexo" id="sexo">
-                        @foreach ($sexo as $s)
-                        <option value="{{ $s->id }}">{{ $s->nombreSexo }}</option>
-                    @endforeach
-                        
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre de la Persona</label>
+                        <input class="form-control" type="text" name="nombre" id="nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Sexo de la Persona</label>
+                        <select class="form-control" name="sexo" id="sexo">
+                            @foreach ($sexo as $s)
+                                <option value="{{ $s->id }}">{{ $s->nombreSexo }}</option>
+                            @endforeach
                         </select>
-                    </label>
+                    </div>
+                    
                     <br>
-                    <label for="documento">Tipo de Documento
-                        <select name="documento" id="documento">
-                        @foreach ($documento as $d)
-                        <option value="{{ $d->id }}">{{ $d->nombreDocumento }}</option>
-                        @endforeach
+                    <div class="form-group">
+                        <label for="documento">Tipo de Documento</label>
+                        <select class="form-control" name="documento" id="documento">
+                            @foreach ($documento as $d)
+                                <option value="{{ $d->id }}">{{ $d->nombreDocumento }}</option>
+                            @endforeach
                        </select>
-                    </label>
+                    </div>
                     <br>
-                    <input type="submit" value="CREAR">
+                    <input class="btn btn-primary" type="submit" value="CREAR">
+                    <a class="btn btn-danger" href="{{route('personas.index')}}">CANCELAR</a>
                     </form>
                 </div>
             </div>
