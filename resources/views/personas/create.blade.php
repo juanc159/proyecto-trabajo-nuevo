@@ -15,6 +15,9 @@
                         <label for="nombre">Nombre de la Persona</label>
                         <input class="form-control" type="text" name="nombre" id="nombre">
                     </div>
+                    @if ($errors->has('nombre'))
+                        <p>{{ $errors->first('nombre') }}</p>
+                    @endif
 
                     <div class="form-group">
                         <label for="nombre">Sexo de la Persona</label>
@@ -24,6 +27,10 @@
                             @endforeach
                         </select>
                     </div>
+
+                    @if ($errors->has('sexo'))
+                        <p>{{ $errors->first('sexo') }}</p>
+                    @endif
                     
                     <br>
                     <div class="form-group">
@@ -34,6 +41,11 @@
                             @endforeach
                        </select>
                     </div>
+
+                    @if ($errors->has('documento'))
+                        <p>{{ $errors->first('documento') }}</p>
+                    @endif
+                    
                     <br>
                     <input class="btn btn-primary" type="submit" value="CREAR">
                     <a class="btn btn-danger" href="{{route('personas.index')}}">CANCELAR</a>

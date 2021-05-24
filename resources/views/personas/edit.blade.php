@@ -17,6 +17,10 @@
                         <input class="form-control" type="text" name="nombre" id="nombre" value="{{$persona->nombrePersona}}">
                     </div>
 
+                    @if ($errors->has('nombre'))
+                        <p>{{ $errors->first('nombre') }}</p>
+                    @endif
+
 
                     <?php
                             foreach($sexo as $s){
@@ -43,6 +47,10 @@
                             @endforeach
                         </select>
                     </div>
+
+                    @if ($errors->has('sexo'))
+                        <p>{{ $errors->first('sexo') }}</p>
+                    @endif
                     
                     
 
@@ -55,6 +63,10 @@
                                 <option value="{{ $d->id }}">{{ $d->nombreDocumento }}</option>
                             @endforeach
                        </select>
+
+                       @if ($errors->has('documento'))
+                        <p>{{ $errors->first('documento') }}</p>
+                    @endif
                     </div>
                     <div class="my-5">
                     <input class="btn btn-primary" type="submit" value="EDITAR">

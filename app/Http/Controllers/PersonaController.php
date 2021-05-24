@@ -46,6 +46,11 @@ class PersonaController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'nombre' => 'required',
+            'sexo' => 'required',
+            'documento' => 'required'
+          ]);
         $persona =  new Personas ;
         $persona->nombrePersona = $request->nombre;
         $persona->idSexo  = $request->sexo;
@@ -75,14 +80,9 @@ class PersonaController extends Controller
     public function edit($id)
     {
         //
-        
         $persona =   Personas::find($id) ;
         $sexo = Sexo::all();
         $documento = TipoDocumento::all();
-
-        
-
-
         return view('personas.edit',compact('persona','sexo','documento'));
     }
 
@@ -96,6 +96,11 @@ class PersonaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validatedData = $request->validate([
+            'nombre' => 'required',
+            'sexo' => 'required',
+            'documento' => 'required'
+          ]);
         $persona =  Personas::find($id) ;
         $persona->nombrePersona = $request->nombre;
         $persona->idSexo  = $request->sexo;
