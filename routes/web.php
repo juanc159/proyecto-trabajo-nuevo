@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\SexoController;
+use App\Http\Controllers\TipoDocumentoController;
+use App\Models\TipoDocumento;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('personas',PersonaController::class);
+Route::delete('/personas/{$id}', [PersonaController::class, 'destroy'])->name('personas.destroy');
+Route::get('/sexo', [SexoController::class, 'index'])->name('sexo.index');
+Route::get('/tipoDocumento', [TipoDocumentoController::class, 'index'])->name('tipoDocumento.index');
+

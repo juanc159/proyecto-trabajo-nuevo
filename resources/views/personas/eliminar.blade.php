@@ -1,0 +1,1 @@
+se ha eliminado el registro
